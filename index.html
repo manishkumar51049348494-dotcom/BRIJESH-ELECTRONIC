@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brijesh Electronic - Repair Service Delhi</title>
+    
+    <style>
+        /* --- CSS Styling (Design) --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        /* Site Name (Top Header - Left) */
+        .site-header {
+            background-color: #1a237e; 
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        /* Menu Button (Top Right Corner) */
+        .menu-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #007bff;
+            transition: background-color 0.3s;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 55px; 
+            right: 10px;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .dropdown-menu a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        /* Portal Heading */
+        .portal-heading {
+            background-color: #e9f5ff;
+            padding: 20px 30px;
+            text-align: center;
+            border-bottom: 1px solid #cce5ff;
+        }
+        /* Main Content Centering */
+        .page-section {
+            padding: 20px 10px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .home-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+            gap: 30px;
+        }
+        /* Service Card Styling - For Centering */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .card-details {
+            padding: 20px;
+            text-align: center; 
+        }
+        .problem-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            display: inline-block; 
+            text-align: left;
+        }
+        /* Admin Order Card */
+        .order-card {
+            background-color: #fff3cd; 
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        /* NEW: Order Tracking Styling */
+        #userTrackingSection {
+            background: white;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        #userTrackingSection input {
+            max-width: 300px;
+            display: inline-block;
+            margin: 10px 10px 20px 0;
+            width: 80%;
+        }
+        .track-result {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-header">
+        <h1>Brijesh Electronic</h1>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    </div>
+
+    <div id="myDropdown" class="dropdown-menu">
+        <a onclick="showSection('homeView')">🏠 Services</a>
+        <a onclick="openProfileModal('login')">👤 Profile / Login</a>
+        <a onclick="checkAdminPassword()">🔒 Admin: Orders Dekhein</a> <a onclick="showSection('userTrackingView')">🔍 Track My Order</a> <a href="#contact">📞 Contact Us</a>
+    </div>
+
+    <div class="portal-heading">
+        <h2>Aapki Repairing Service Delhi</h2>
+        <p>Apne kharab electronic ki samasya chunein aur repair order dein.</p>
+    </div>
+    <hr>
+
+    <div id="homeView" class="page-section home-grid">
+        <section class="card">
+            <img src="tv_repair_photo.jpg" alt="Kharab TV ki tasveer">
+            <div class="card-details">
+                <h2>📺 TV Repair Service</h2>
+                <p style="font-weight: bold; color: #007bff;">Aapka TV kis tarah kharab hai? Samasya chunein:</p>
+                <ul class="problem-list">
+                    <li>Screen Tooti Ya Line Aa Rahi Hai</li>
+                    <li>TV Bilkul On Nahi Ho Raha Hai</li>
+                    <li>Aawaaz (Audio) Aa Rahi Hai Par Picture Nahi Hai</li>
+                    <li><li>HDMI/USB Port Kaam Nahi Kar Raha Hai</li>
+                </ul>
+                <button class="repair-button" onclick="openOrderModal('TV Repair', ['Screen Tooti Ya Line Aa Rahi Hai', 'TV Bilkul On Nahi Ho Raha Hai', 'Aawaaz (Audio) Aa Rahi Hai Par Picture Nahi Hai', 'Bar-Bar Apne Aap Band Ho Jata Hai', 'HDMI/USB Port Kaam Nahi Kar Raha Hai'])">🛠️ Order Dein</button>
+            </div>
+        </section>
+        </div>
+    
+    <div id="userTrackingView" class="page-section" style="display:none;">
+        <div id="userTrackingSection">
+            <h2>🔍 Track My Order (Order Status Jaanein)</h2>
+            <p>Kripya apna **Mobile Number** daalein jisse aapne order book kiya tha:</p>
+            <input type="tel" id="trackingPhone" placeholder="Mobile Number (e.g., 9876543210)">
+            <button onclick="trackOrder()" class="submit-button" style="width: auto;">Track Karein</button>
+            <div id="trackingResult">
+                <p style="color: #555; margin-top: 15px;">Aapka Order Status yahan dikhega.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="adminView" class="page-section" style="display:none; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+        <h2>🔑 Admin View: Aaye Hue Orders Dekhein</h2>
+        <p id="orderCount" style="font-weight: bold; color: #007bff;">Orders Load Ho Rahe Hain...</p>
+        <div id="ordersList">
+            </div>
+        <button onclick="clearOrders()" style="background: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 20px; cursor: pointer;">❌ Sabhi Orders Hata Dein (Clear Local Data)</button>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #856404;">*Note: Yahan sabhi customers ke details hain. Is data ko surakshit rakhein.</p>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; 2025 Brijesh Electronic | Aapki Repairing Service Delhi</p>
+        <p>Call Us for Quick Service: 📞 12345-67890</p>
+    </footer>
+
+    <div id="orderModal" class="modal">...</div>
+    <div id="profileModal" class="modal">...</div>
+
+
+    <script>
+        // --- GLOBAL CONFIG ---
+        const ADMIN_PASSWORD = "123"; // **ADMIN PASSWORD:** Isko aap badal sakte hain
+        let isLoggedIn = false;
+        let userName = '';
+
+        // --- DOM Elements (for brevity, reduced list) ---
+        const homeView = document.getElementById('homeView');
+        const adminView = document.getElementById('adminView');
+        const userTrackingView = document.getElementById('userTrackingView'); // New
+        const trackingResultDiv = document.getElementById('trackingResult'); // New
+        const dropdownMenu = document.getElementById('myDropdown');
+
+        // --- SECTION MANAGEMENT ---
+        function toggleMenu() {
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showSection(sectionId) {
+            dropdownMenu.style.display = 'none';
+            homeView.style.display = 'none';
+            adminView.style.display = 'none';
+            userTrackingView.style.display = 'none';
+
+            if (sectionId === 'homeView') {
+                homeView.style.display = 'grid';
+            } else if (sectionId === 'adminView') {
+                adminView.style.display = 'block';
+                loadOrders(); 
+            } else if (sectionId === 'userTrackingView') { // New tracking view
+                userTrackingView.style.display = 'block';
+                trackingResultDiv.innerHTML = '<p style="color: #555; margin-top: 15px;">Aapka Order Status yahan dikhega.</p>';
+            }
+        }
+        
+        // --- ADMIN LOCK FUNCTION ---
+        function checkAdminPassword() {
+            dropdownMenu.style.display = 'none';
+            const password = prompt("Admin Panel Access: Kripya Password daalein.");
+            
+            if (password === ADMIN_PASSWORD) {
+                showSection('adminView');
+            } else if (password !== null) {
+                alert("❌ Galat Password. Access Denied.");
+            }
+        }
+
+        // --- ORDER TRACKING FUNCTION (NEW: For Users) ---
+        function trackOrder() {
+            const phoneInput = document.getElementById('trackingPhone').value.trim();
+            trackingResultDiv.innerHTML = '';
+            
+            if (phoneInput.length < 10) {
+                trackingResultDiv.innerHTML = '<p style="color: red;">❌ Kripya 10 ankon (digits) ka sahi Mobile Number daalein.</p>';
+                return;
+            }
+
+            const orders = JSON.parse(localStorage.getItem('brijesh_electronic_orders')) || [];
+            
+            // Find orders matching the phone number
+            const userOrders = orders.filter(order => order.phone === phoneInput);
+
+            if (userOrders.length === 0) {
+                trackingResultDiv.innerHTML = `<p style="color: orange;">⚠️ Aapke Mobile Number (${phoneInput}) se koi Order nahi mila.</p>`;
+            } else {
+                let html = '<p style="font-weight: bold; color: #28a745;">✅ Aapke Orders Mil Gaye! Status Jaanein:</p>';
+                
+                // Show only the latest 3 orders for simplicity
+                userOrders.slice(-3).reverse().forEach((order, index) => {
+                    // Status simulation for demo
+                    const status = index === 0 ? "🚚 On the way to you" : (index === 1 ? "🛠️ Repair Pending" : "📋 Received"); 
+
+                    html += `
+                        <div class="track-result" style="background: ${index === 0 ? '#e6ffe6' : '#f0f8ff'}; border: 1px solid #ccc;">
+                            <p><strong>Order ID:</strong> ${order.id}</p>
+                            <p><strong>Service:</strong> ${order.serviceName}</p>
+                            <p><strong>Problem:</strong> ${order.problem}</p>
+                            <p style="font-size: 1.1em; color: ${index === 0 ? 'green' : 'blue'}; margin-top: 5px;">
+                                <strong>Current Status:</strong> ${status}
+                            </p>
+                            <p style="font-size: 0.9em; color: #777;">Order Date: ${order.date}</p>
+                        </div>
+                    `;
+                });
+
+                trackingResultDiv.innerHTML = html;
+            }
+        }
+        
+        // --- ORDER MANAGEMENT (Storage & Display) ---
+
+        function saveOrder(data) {
+            const orders = JSON.parse(localStorage.getItem('brijesh_electronic_orders')) || [];
+            const newOrder = {
+                id: Date.now(), 
+                date: new Date().toLocaleString('en-IN'),
+                ...data
+            };
+            orders.push(newOrder);
+            localStorage.setItem('brijesh_electronic_orders', JSON.stringify(orders));
+        }
+
+        function loadOrders() {
+            const orders = JSON.parse(localStorage.getItem('brijesh_electronic_orders')) || [];
+            const ordersList = document.getElementById('ordersList');
+            const orderCount = document.getElementById('orderCount');
+            ordersList.innerHTML = '';
+            
+            orderCount.textContent = `Kul ${orders.length} Order Aaye Hain.`;
+
+            if (orders.length === 0) {
+                ordersList.innerHTML = '<p style="text-align: center; margin-top: 20px; color: red;">Abhi koi Order nahi aaya hai.</p>';
+                return;
+            }
+
+            orders.reverse().forEach(order => {
+                const card = document.createElement('div');
+                card.className = 'order-card';
+                card.innerHTML = `
+                    <h4>🛠️ ${order.serviceName} (Order ID: ${order.id})</h4>
+                    <p><strong>Date:</strong> ${order.date}</p>
+                    <p><strong>Customer Name:</strong> ${order.name}</p>
+                    <p><strong>Mobile:</strong> <a href="tel:${order.phone}">${order.phone}</a></p>
+                    <p><strong>Problem:</strong> ${order.problem}</p>
+                    <p><strong>Address:</strong> ${order.address}</p>
+                    ${order.description ? `<p><strong>Extra Info:</strong> ${order.description}</p>` : ''}
+                `;
+                ordersList.appendChild(card);
+            });
+        }
+        
+        // ... (Other JavaScript functions: openOrderModal, closeModal, orderForm.addEventListener, profile functions, etc. - were in previous code and are assumed present here for brevity)
+
+        // Default view: Home/Services dikhao
+        showSection('homeView');
+    </script>
+</body>
+</html>
